@@ -45,7 +45,7 @@ BE-build-test-package:
 ```
 
 ### 2. Naloga
-Obstoječ workflow dopolnite tako, da se rezultat gradnje backend shrani kot artefakt.
+Obstoječ workflow dopolnite tako, da se rezultat gradnje backend shrani kot artefakt. Poskrbite, da se naloga začne izvajati šele po koncu prejšnje (NAMIG: needs[ime prejšnjega job-a]).
 Pri tem si lahko pomagate s spodnjim odsekom kode:
 ```
 - name: Upload resulting Build package
@@ -56,13 +56,13 @@ Pri tem si lahko pomagate s spodnjim odsekom kode:
 ```
 
 ### 3. Naloga 
-Obstoječ workflow dopolnite tako, da zgradite Docker sliko za backend in jo naložite na Dockerhub. Za to potrebujete račun na Dockerhub ter dodani skrivnosti DOCKER_HUB_USERNAME (username) in DOCKER_HUB_PASS (token) na GitHub.
+Obstoječ workflow dopolnite tako, da zgradite Docker sliko za backend in jo naložite na Dockerhub. Za to potrebujete račun na Dockerhub ter dodani skrivnosti DOCKER_HUB_USERNAME (username) in DOCKER_HUB_PASS (token) na GitHub. Poskrbite, da se naloga začne izvajati šele po koncu prejšnje.
 Pri tem si lahko pomagate s spodnjim odsekom kode:
 ```
 BE-docker-image-delivery:
     name: BE Docker Image Delivery
     runs-on: ubuntu-latest
-    needs: [BE-static-code-analysis]
+    needs: [<TODO>]
 
     steps:
       - uses: actions/checkout@v3
