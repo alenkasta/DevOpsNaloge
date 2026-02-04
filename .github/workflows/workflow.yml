@@ -31,18 +31,18 @@ jobs:
             ports:
               - 5432:5432   
 
-    steps:
-      - uses: actions/checkout@v3
-  
-      - name: Set up JDK 21
-        uses: actions/setup-java@v3
-        with:
-          java-version: '21'
-          distribution: 'temurin'
-          cache: maven
-  
-      - name: Build and test with Maven
-        run: mvn -B package --file pom.xml -Dquarkus.datasource.reactive.url=vertx-reactive:postgresql://localhost:5432/measdb
-        working-directory: backend   
+      steps:
+        - uses: actions/checkout@v3
+    
+        - name: Set up JDK 21
+          uses: actions/setup-java@v3
+          with:
+            java-version: '21'
+            distribution: 'temurin'
+            cache: maven
+    
+        - name: Build and test with Maven
+          run: mvn -B package --file pom.xml -Dquarkus.datasource.reactive.url=vertx-reactive:postgresql://localhost:5432/measdb
+          working-directory: backend   
         
     
