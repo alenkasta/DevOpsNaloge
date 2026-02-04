@@ -12,3 +12,8 @@ jobs:
     runs-on: ubuntu-latest  
     steps:
       - run: echo "Hello"
+- name: Upload resulting Build package
+  uses: actions/upload-artifact@v4
+  with:
+    name: Package
+    path: backend/target
