@@ -13,7 +13,7 @@ jobs:
     steps:
       - run: echo "Hello"
       
- BE-build-test-package:
+BE-build-test-package:
   name: BE Build & Test & Package
   runs-on: ubuntu-latest
   steps:
