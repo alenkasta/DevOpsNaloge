@@ -11,4 +11,4 @@ jobs:
     name: Hello jobs 
     runs-on: ubuntu-latest  
     steps:
-      -run: echo "Hello"
+      - run: echo "Hello"
